@@ -1,0 +1,16 @@
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'frontend@*.*.*'
+
+name: Build workflow demo
+
+run-name: Build ${{ github.ref_type == 'tag' && '(tag snapshot)' || '' }}
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+          - run: echo 'Hello world'
